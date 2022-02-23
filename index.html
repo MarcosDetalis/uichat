@@ -1,74 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/mainc.css">
 <script src="js/fontAw.js"></script>
+<script src="js/jquery.js"></script>
+
+ <script src="https://cdn.socket.io/socket.io-3.0.5.js"></script> 
+<!-- <script src="js/socket1-4-5.js"></script> -->
+<script src="js/socket.js"></script>
+
+<!-- <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script> -->
+
 <body>
     <div class="navigation">
-        <section >
-           <span class="ojo"></span>
-            <div class="box">
-                <h3>Mensajes</h3>
-                <div class="lista">
-                    <div class="imgBx">
-                        <img src="cuervo.jpg" alt="">
-                    </div>
-                    <div class="content">
-                        <h2 class="rank">
-                            <small>#</small>1
-                        </h2>
-                        <h4>Algos mas</h4>
-                        <p>parrafo</p>
-                    </div>
-                </div>
-                <div class="lista">
-                    <div class="imgBx">
-                        <img src="cuervo.jpg" alt="">
-                    </div>
-                    <div class="content">
-                        <h2 class="rank">
-                            <small>#</small>1
-                        </h2>
-                        <h4>Algos mas</h4>
-                        <p>parrafo</p>
-                    </div>
-                </div>
-                <div class="lista">
-                    <div class="imgBx">
-                        <img src="cuervo.jpg" alt="">
-                    </div>
-                    <div class="content">
-                        <h2 class="rank">
-                            <small>#</small>1
-                        </h2>
-                        <h4>Algos xsdsd mas</h4>
-                        <p>parrafo</p>
-                    </div>
-                </div>
+        <section>
+            <span class="ojo"></span>
+            <div class="box"id="chat" >
+             <!--contenedor de mensajes -->
             </div>
         </section>
 
- 
-        <div class="boxsm msm" id="sec">
-            <input type="checkbox" id="check"   onclick="borrar()">
-            <div class="search-box">
-              <input type="text" onclick="borrar()" >
-              <label for="check" class="iconsm">
-                <i class="fas fa-paper-plane"></i>
-              </label>
-              
-            </div>
-           <button class="cerrar" onclick="remove()"><i class="fa fa-times-circle" aria-hidden="true"></i> </button>
-          </div>
 
-<div   id="sec2"></div>
-        
+
+        <div class="boxsm msm" id="sec">
+            <form id="message-form">
+            <input type="checkbox" id="check" onclick="borrar()">
+            <div class="search-box">
+                <input type="text" id="message"  autocomplete="off" onclick="borrar()">
+                <label for="check"id ="mensaje" class="iconsm">
+               <i id="icono"class="fas fa-paper-plane"></i>
+               <button id="send" class="active"><i class="fas fa-paper-plane"></i></button>
+                </label>
+            </div> </form>
+            <button class="cerrar active" id="cerrar"onclick="remove()"><i class="fa fa-times-circle" aria-hidden="true"></i> </button>
+       
+        </div>
+
+
+    
+<!-- navegacion -->
+        <div id="sec2"></div>
         <ul>
             <li class="list active">
                 <a href="#">
@@ -92,7 +71,7 @@
                         <span class="icon-button__badge">2</span>
                     </span>
                     <span class="text">Mensaje</span>
-               
+
                 </a>
             </li>
             <li class="list">
@@ -117,30 +96,33 @@
         </ul>
     </div>
 
- 
 </body>
 
+<script src="js/main.js"></script>
 <script>
-const list = document.querySelectorAll('.list');
-const sec = document.getElementById("sec")
-const sec2 = document.getElementById("sec2")
-function activeLink(){
-    list.forEach((item)=>
-    item.classList.remove('active'));
-    this.classList.add('active');  
-}
-list.forEach((item)=>
-item.addEventListener('click',activeLink ))
+    const list = document.querySelectorAll('.list');
+    const sec = document.getElementById("sec")
+    const sec2 = document.getElementById("sec2")
+    function activeLink() {
+        list.forEach((item) =>
+            item.classList.remove('active'));
+        this.classList.add('active');
+    }
+    list.forEach((item) =>
+        item.addEventListener('click', activeLink))
 
-function borrar(){
-sec.classList.add('hola');
-sec2.classList.add('barra');
-}
-function remove(){
-    sec.classList.remove('hola')
-    document.getElementById('check')
-    
-}
+    function borrar() {
+        sec.classList.add('hola');
+        sec2.classList.add('barra');
+    }
+    function remove() {
+        sec.classList.remove('hola')
+        document.getElementById("check").checked=false
+        document.getElementById("send").classList.add("active")
+        document.getElementById("icono").classList.remove("active")
+        document.getElementById("cerrar").classList.add("active")
+    }
 
 </script>
+
 </html>

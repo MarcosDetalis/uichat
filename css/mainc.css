@@ -90,27 +90,17 @@ section::after{
  /*mensaje */
 
 .msm{
-
     position: absolute;
-    bottom: 20vh;
-    min-width: 400px;
-    min-height: 5vh;
-    background: rgba(255,255,255,0.1);
-    box-shadow: 0 25px 45px rgba(0, 0, 0,0.1);
-    border: 1px solid rgba(255,255,255,0.5);
-    border-right: 1px solid rgba(255,255,255,0.2);
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    bottom: 21vh;
+    min-width: 98%; /* 400px */
     border-radius: 10px;
     z-index: 10;
-    backdrop-filter: blur(20px);
-
 }
  
 .hola{
     position: absolute;
-    bottom: -1vh;
-    min-width: 450px;
-    min-height: 15vh;
+    bottom: 1vh;
+    min-width: 100%;
     background: rgba(255,255,255,0.1);
     box-shadow: 0 25px 45px rgba(0, 0, 0,0.1);
     border: 1px solid rgba(255,255,255,0.5);
@@ -118,7 +108,6 @@ section::after{
     border-bottom: 1px solid rgba(255,255,255,0.2);
     border-radius: 10px;
     z-index: 10;
-    padding: 15px;
     backdrop-filter: blur(20px);
     
 
@@ -163,7 +152,7 @@ input{
     margin: auto;
     border-radius: 25px;
     transition: all 0.3s ease;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   #check:checked ~ .search-box{
     max-width: 380px;
@@ -211,4 +200,33 @@ input{
      padding: 5px;
      background: rgba(255,255,255,0.1);
   }
+ 
+  .box {
+	height: 40vh;
+    scrollbar-width: none;
+	overflow-y: scroll;
+     padding-bottom: 100px;
+   
+}
+
+/* ACTUALIZACION */
+#send.active{
+   display: none;
+}
+#send{
+    font-size: 20px;
+    width: 60px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    background: #181818;
+    border-radius: 0 25px 25px 0;
+}
+#icono.active{
+    display: none;
+}
+
+#cerrar.active{
+    display: none;
+}
+::-webkit-scrollbar {display: none;}/*oculta el scroll*/
   /*04/02/23
